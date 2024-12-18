@@ -14,6 +14,6 @@ struct Mr_WoormApp: App {
         WindowGroup {
             MainView()
         }
-      //  .modelContainer(for: Book.self)
+        .modelContainer(for: Book.self)
     }
 }
