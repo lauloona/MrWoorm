@@ -53,11 +53,10 @@ struct Mybooks: View {
                     Text("CONTINUE  >")
                         .font(.caption)
                         .fontWeight(.light)
-                        .accessibilityLabel("Continue reading")
+                        .accessibilityLabel("Continue reading. Tap here if you want to do it.")
                 } // hstack
                 ProgressView(value: 15, total: 100)
-                    .accessibilityLabel("Reading progress bar")
-                    .accessibilityValue("15 percent complete")
+                    .accessibilityLabel("Reading progress bar: 15 percent complete")
                 
             } //vstack
             } // end hstack
@@ -67,8 +66,7 @@ struct Mybooks: View {
         Divider()
         
             ScrollView {
-                ForEach(bookView.completeLibrary.indices, id: \.self) { index in
-                    let book = bookView.completeLibrary[index]
+                ForEach(bookView.library) { book in
                     BookCard(book: book)
                         
                 }
@@ -93,6 +91,7 @@ struct Mybooks: View {
             }
         
         .navigationTitle("My books")
+        .accessibilityLabel("My books View")
             
         } // end navigtionstack
         

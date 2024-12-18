@@ -18,12 +18,13 @@ struct Myshelves: View {
                         .frame(width: 365, height: 210)
                         .foregroundStyle(Color(colorScheme == .light ? .white : .systemGray6))
                         .shadow(radius: 3,x: 2,y: 2)
+                        .accessibilityLabel("Romance shelf")
                     
                     VStack(alignment: .leading){
                         Text("Romance >")
                             .font(.body)
                             .padding(.bottom, 5.0)
-                            .accessibilityLabel("Romance shelf")
+                            .accessibilityLabel("Tap here if you want to open the Romance Shelf")
                         
                         HStack{
                             Image("acotar")
@@ -90,12 +91,13 @@ struct Myshelves: View {
                         .frame(width: 365, height: 210)
                         .foregroundStyle(Color(colorScheme == .light ? .white : .systemGray6))
                         .shadow(radius: 3,x: 2,y: 2)
+                        .accessibilityLabel("Fantasy shelf with three esclamation marks")
                     
                     VStack(alignment: .leading){
                         Text("Fantasy!!! >")
                             .font(.body)
                             .padding(.bottom, 5.0)
-                            .accessibilityLabel("Fantasy shelf with three esclamation marks")
+                            .accessibilityLabel("Tap here if you want to open the Fantasy Shelf")
                         
                         HStack{
                             Image("captive")
@@ -146,7 +148,7 @@ struct Myshelves: View {
                                 .accessibilityLabel("Progress milestone flag")
                         } // hstack
                         ProgressView(value: 10, total: 100)
-                            .accessibilityLabel("Reading progress bar for the Romance shelf")
+                            .accessibilityLabel("Reading progress bar for the Fantasy shelf")
                             .accessibilityValue("10 percent complete")
                     } // end vstack
                     .padding(.horizontal, 30.0)
@@ -164,6 +166,7 @@ struct Myshelves: View {
                 } // toolbaritem
             }
         .navigationTitle("My Shelves")
+        .accessibilityLabel("My shelves View")
         } // navigation
     } //body
 }

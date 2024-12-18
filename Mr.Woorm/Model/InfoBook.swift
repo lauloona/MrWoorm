@@ -8,7 +8,8 @@
 import Foundation
 import SwiftData
 
-struct Book: Identifiable, Hashable {
+@Model
+class Book {
     
     var id = UUID()
     var name: String
