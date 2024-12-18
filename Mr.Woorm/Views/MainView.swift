@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -16,19 +18,24 @@ struct MainView: View {
             Mybooks()
                 .tabItem {
                     Label("Books", systemImage: "book.fill")
+                        .accessibilityLabel("Books")
                 }
             
             Myshelves()
                 .tabItem{
                     Label("Shelves", systemImage: "books.vertical.fill")
+                        .accessibilityLabel("Shelves")
                 }
             
             Favorites()
                 .tabItem{
                     Label("Favorites", systemImage:"heart.fill")
+                        .accessibilityLabel("Favorites Books")
                 }
-            
+
         } // END TAB VIEW
+        
+        //.modelContainer(for: Book.self)
     } // END BODY
 }
 

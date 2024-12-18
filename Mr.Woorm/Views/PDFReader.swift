@@ -15,6 +15,8 @@ struct PDFReader: View {
         PDFKitView(pdfName: pdfName)
             .navigationTitle("Red, White & Royal Blue")
             .navigationBarTitleDisplayMode(.inline)
+            .accessibilityLabel("PDF reader for Red, White & Royal Blue")
+            .accessibilityHint("Swipe to navigate through the pages.")
     }
 }
 
@@ -28,6 +30,8 @@ struct PDFKitView: UIViewRepresentable {
         if let path = Bundle.main.path(forResource: pdfName, ofType: "pdf") {
             if let document = PDFDocument(url: URL(fileURLWithPath: path)) {
                 pdfView.document = document
+                pdfView.accessibilityLabel = "\(pdfName) document"
+                pdfView.accessibilityHint = "Use gestures to navigate through pages."
             }
         }
         return pdfView

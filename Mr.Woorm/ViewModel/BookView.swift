@@ -6,16 +6,42 @@
 //
 
 import Foundation
+import SwiftData
 
 class BookView: ObservableObject {
-    @Published var library = [
-        Book(name: "Captive Prince", author: "C.S. Pacat", imageName: "captive"),
-        Book(name: "A Court of Thorns and Roses", author: "Sarah J. Maas", imageName: "acotar"),
-        Book(name: "Sorcery of Thorns", author: "Margaret Rogerson", imageName: "sorcery"),
-        Book(name: "A Court of Wings and Ruins", author: "Sarah J. Maas", imageName: "acowar"),
-        Book(name: "A Court of Mist and Fury", author: "Sarah J. Maas", imageName: "acomaf"),
-        Book(name: "Six of Crows", author: "Leigh Bardugo", imageName: "sixofcrows"),
-        Book(name: "Crooked Kingdom", author: "Leigh Bardugo", imageName: "crooked")
-    ]
     
+ //   @Published var library = [
+ //       Book(name: "Captive Prince", author: "C.S. Pacat", imageName: "captive", isFavorite: false),
+ //       Book(name: "A Court of Thorns and Roses", author: "Sarah J. Maas", imageName: "acotar", isFavorite: false),
+ //       Book(name: "Sorcery of Thorns", author: "Margaret Rogerson", imageName: "sorcery", isFavorite: false),
+ //       Book(name: "A Court of Wings and Ruins", author: "Sarah J. Maas", imageName: "acowar", isFavorite: false),
+ //       Book(name: "A Court of Mist and Fury", author: "Sarah J. Maas", imageName: "acomaf", isFavorite: false),
+ //       Book(name: "Six of Crows", author: "Leigh Bardugo", imageName: "sixofcrows", isFavorite: false),
+ //       Book(name: "Crooked Kingdom", author: "Leigh Bardugo", imageName: "crooked", isFavorite: false)
+ //   ]
+    
+    static var library: [Book] {
+        return [
+            Book(name: "Captive Prince", author: "C.S. Pacat", imageName: "captive", isFavorite: true),
+            Book(name: "A Court of Thorns and Roses", author: "Sarah J. Maas", imageName: "acotar", isFavorite: true),
+            Book(name: "Sorcery of Thorns", author: "Margaret Rogerson", imageName: "sorcery", isFavorite: isFavorite),
+            Book(name: "A Court of Wings and Ruins", author: "Sarah J. Maas", imageName: "acowar", isFavorite: isFavorite),
+            Book(name: "A Court of Mist and Fury", author: "Sarah J. Maas", imageName: "acomaf", isFavorite: isFavorite),
+            Book(name: "Six of Crows", author: "Leigh Bardugo", imageName: "sixofcrows", isFavorite: isFavorite),
+            Book(name: "Crooked Kingdom", author: "Leigh Bardugo", imageName: "crooked", isFavorite: isFavorite)
+        ]
+    }
+    
+    var completeLibrary: [Book] = BookView.library
+    
+    static var isFavorite: Bool = false
+        
+    func addFavorite() {
+        if BookView.isFavorite == false {
+            BookView.isFavorite = true
+        } else {
+            BookView.isFavorite = false
+        }
+        print("oah")
+    }
 }

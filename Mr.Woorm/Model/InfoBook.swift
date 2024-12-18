@@ -6,13 +6,22 @@
 //
 
 import Foundation
-import SwiftUI
+import SwiftData
 
-struct Book: Identifiable {
+struct Book: Identifiable, Hashable {
     
     var id = UUID()
     var name: String
     var author: String
     var imageName: String
+    var isFavorite: Bool
+    
+    internal init(id: UUID = UUID(), name: String, author: String, imageName: String, isFavorite: Bool) {
+        self.id = id
+        self.name = name
+        self.author = author
+        self.imageName = imageName
+        self.isFavorite = isFavorite
+    }
 
 }

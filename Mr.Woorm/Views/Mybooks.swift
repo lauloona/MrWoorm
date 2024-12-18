@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Mybooks: View {
     @Environment(\.colorScheme) var colorScheme
@@ -24,6 +25,7 @@ struct Mybooks: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 120, height: 202)
                     .cornerRadius(5)
+                    .accessibilityLabel("Cover image of Red, White & Royal Blue")
                             } // end navigationlink
             
             VStack(alignment: .leading) {
@@ -32,22 +34,31 @@ struct Mybooks: View {
                     .font(.footnote)
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)
+                    .accessibilityLabel("Recently read")
+                
                 Text("Red, White & Royal Blue")
                     .font(.title)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
+                    .accessibilityLabel("Red, White and Royal Blue by Casey McQuiston")
                 Spacer()
                 
                 HStack(){
                     Text("15%")
                         .font(.caption)
                         .fontWeight(.light)
+                        .accessibilityLabel("Reading progress: 15%")
+                    
                     Spacer()
                     Text("CONTINUE  >")
                         .font(.caption)
                         .fontWeight(.light)
+                        .accessibilityLabel("Continue reading")
                 } // hstack
                 ProgressView(value: 15, total: 100)
+                    .accessibilityLabel("Reading progress bar")
+                    .accessibilityValue("15 percent complete")
+                
             } //vstack
             } // end hstack
         .frame(height: 202)
@@ -56,9 +67,10 @@ struct Mybooks: View {
         Divider()
         
             ScrollView {
-                ForEach(bookView.library) { book in
+                ForEach(bookView.completeLibrary.indices, id: \.self) { index in
+                    let book = bookView.completeLibrary[index]
                     BookCard(book: book)
-                        .padding(-5)
+                        
                 }
             }
             .toolbar {
@@ -67,6 +79,7 @@ struct Mybooks: View {
                         
                     }, label: {
                         Image(systemName: "magnifyingglass")
+                            .accessibilityLabel("Search books")
                     })
                 } // toolbaritem
                 ToolbarItem(placement: .topBarTrailing) {
@@ -74,6 +87,7 @@ struct Mybooks: View {
                         
                     }, label: {
                         Image(systemName: "plus")
+                            .accessibilityLabel("Add a new book")
                     })
                 } // toolbaritem
             }
