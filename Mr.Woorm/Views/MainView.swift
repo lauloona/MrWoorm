@@ -34,8 +34,6 @@ struct MainView: View {
                 }
 
         } // END TAB VIEW
-        
-        //.modelContainer(for: Book.self)
     } // END BODY
 }
 

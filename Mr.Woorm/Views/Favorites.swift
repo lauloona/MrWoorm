@@ -10,9 +10,6 @@ import SwiftData
 
 struct Favorites: View {
     @Environment(\.colorScheme) var colorScheme
-    //@Query(filter: #Predicate<Book> { book in
-    //    book.isFavorite == true
-    //})
     var bookView = BookView()
     
     
@@ -28,21 +25,6 @@ struct Favorites: View {
                     }
                         
                 }
-                 
-                //if favoritebooks.isEmpty {
-                //
-                //    Text("No favorites yet")
-                //        .font(.title2)
-                //        .foregroundStyle(.secondary)
-                //        .padding()
-                //        .accessibilityLabel("No favorites yet")
-                    
-                //}
-                //else {
-                //    List(favoritebooks) { book in
-                //        Text(book.author)
-                //    }
-                //}
     
                 
             } // scroll

@@ -69,12 +69,7 @@ struct BookCard: View {
         } //end zstack
         
     } // BODY
-    
-   //func addToFavorite() {
-   //     book.isFavorite.toggle()
-   //     try? modelContext.save()
-        
-   // }
+
 }
 
 #Preview {
